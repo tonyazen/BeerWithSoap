@@ -3,7 +3,46 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerWithSoapService", "BeerWithSoapService\BeerWithSoapService.csproj", "{3A11D825-2854-4CD7-B0F8-7309F009205C}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "HostDevServer", "HostDevServer\", "{1C2A7CBD-2665-45FF-B45D-0961586A0D2D}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
+		ProjectReferences = "{3a11d825-2854-4cd7-b0f8-7309f009205c}|BeerWithSoapService.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_55860"
+		Debug.AspNetCompiler.PhysicalPath = "HostDevServer\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55860\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_55860"
+		Release.AspNetCompiler.PhysicalPath = "HostDevServer\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55860\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "55860"
+		SlnRelativePath = "HostDevServer\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A11D825-2854-4CD7-B0F8-7309F009205C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A11D825-2854-4CD7-B0F8-7309F009205C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A11D825-2854-4CD7-B0F8-7309F009205C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A11D825-2854-4CD7-B0F8-7309F009205C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C2A7CBD-2665-45FF-B45D-0961586A0D2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C2A7CBD-2665-45FF-B45D-0961586A0D2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C2A7CBD-2665-45FF-B45D-0961586A0D2D}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C2A7CBD-2665-45FF-B45D-0961586A0D2D}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
