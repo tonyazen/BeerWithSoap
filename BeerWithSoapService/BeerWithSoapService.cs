@@ -135,7 +135,7 @@ namespace BeerWithSoapService
                 baseResponse.TechnicalErrorMessage = "The Client Code is not valid";
             if (string.IsNullOrEmpty(baseRequest.RequestId))
                 baseResponse.TechnicalErrorMessage = "Request Id is required";
-            baseResponse.ResponseStatus = baseResponse.TechnicalErrorMessage == string.Empty ? ResponseStatus.Success : ResponseStatus.Failure;
+            baseResponse.ResponseStatus = baseResponse.TechnicalErrorMessage.Length > 0 ? ResponseStatus.Success : ResponseStatus.Failure;
             return baseResponse;
         }
 
@@ -145,9 +145,7 @@ namespace BeerWithSoapService
             {
                 RequestTimeStamp = DateTime.Now,
                 RequestId = baseRequest.RequestId,
-                ResponseStatus = ResponseStatus.Success,
-                DisplayErrorMessage = string.Empty,
-                TechnicalErrorMessage = string.Empty
+                ResponseStatus = ResponseStatus.Success
             };
         }
         
