@@ -1,9 +1,12 @@
 ﻿using System;
+using log4net;
 
 namespace BeerWithSoapService
 {
     public class BeerWithSoapService : IBeerWithSoapService
     {
+        private static readonly ILog _logger = LogManager.GetLogger(typeof(BeerWithSoapService));
+
         public AddBeerResponse AddBeer(AddBeerRequest addBeerRequest)
         {
             var response = new AddBeerResponse()
@@ -46,10 +49,14 @@ namespace BeerWithSoapService
 
         public GetAllBeersResponse GetAllBeers(GetAllBeersRequest getAllBeersRequest)
         {
+            _logger.Debug("Entering Get All Beers");
+
             var response = new GetAllBeersResponse()
             {
                 BaseResponse = CreateBaseResponse(getAllBeersRequest.BaseRequest)
             };
+
+            _logger.Debug("Base Response created");
 
             response.BaseResponse = VerifyBaseRequest(getAllBeersRequest.BaseRequest, response.BaseResponse);
 
@@ -135,12 +142,21 @@ namespace BeerWithSoapService
                 baseResponse.TechnicalErrorMessage = "The Client Code is not valid";
             if (string.IsNullOrEmpty(baseRequest.RequestId))
                 baseResponse.TechnicalErrorMessage = "Request Id is required";
-            baseResponse.ResponseStatus = baseResponse.TechnicalErrorMessage.Length > 0 ? ResponseStatus.Success : ResponseStatus.Failure;
+            _logger.Debug($"Verify Base Request. Technical Error: {baseResponse.TechnicalErrorMessage}.");
+
+            baseResponse.ResponseStatus = String.IsNullOrEmpty(baseResponse.TechnicalErrorMessage) ? ResponseStatus.Success : ResponseStatus.Failure;
+
+            _logger.Debug($"Verify Base Request. Response Status: {baseResponse.ResponseStatus}.");
+
             return baseResponse;
         }
 
         private BaseResponse CreateBaseResponse(BaseRequest baseRequest)
         {
+            _logger.Debug("Entering Create Base Response");
+
+            _logger.DebugFormat($"RequestTimeStamp: {DateTime.Now}; RequestId: {baseRequest.RequestId}");
+
             return new BaseResponse
             {
                 RequestTimeStamp = DateTime.Now,
