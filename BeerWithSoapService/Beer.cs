@@ -132,6 +132,7 @@ namespace BeerWithSoapService
         Dubbel,
         Gose,
         AmericanPaleAle,
-        ScotchAle
+        ScotchAle,
+        Other
     }
 }
