@@ -101,6 +101,14 @@ namespace BeerWithSoapService
 
     }
 
+    public class AddBeer
+    {
+        public string Name { get; set; }
+        public Style Style { get; set; }
+        public string Abv { get; set; }
+        public string Brewery { get; set; }
+    }
+
     public enum Style
     {
         Ale,
