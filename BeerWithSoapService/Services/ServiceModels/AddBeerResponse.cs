@@ -1,7 +1,7 @@
 ﻿
-namespace BeerWithSoapService.ServiceModels
+namespace BeerWithSoapService.Services.ServiceModels
 {
-    public class UpdateBeerResponse
+    public class AddBeerResponse
     {
         public BaseResponse BaseResponse { get; set; }
         public Beer Beer { get; set; }

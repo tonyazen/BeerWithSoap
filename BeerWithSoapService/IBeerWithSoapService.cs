@@ -1,5 +1,5 @@
 ﻿using System.ServiceModel;
-using BeerWithSoapService.ServiceModels;
+using BeerWithSoapService.Services.ServiceModels;
 
 namespace BeerWithSoapService
 {

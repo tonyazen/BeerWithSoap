@@ -1,12 +1,22 @@
 ﻿using System;
-using BeerWithSoapService.ServiceModels;
+using BeerWithSoapService.Services;
+using BeerWithSoapService.Services.ServiceModels;
 using log4net;
 
 namespace BeerWithSoapService
 {
     public class BeerWithSoapService : IBeerWithSoapService
     {
-        private readonly ILog _logger = LogManager.GetLogger(typeof(BeerWithSoapService));
+        private static readonly ILog _logger = LogManager.GetLogger(typeof(BeerWithSoapService));
+
+        private readonly BeerRepository _beerRepository;
+
+        public BeerWithSoapService()
+        {
+            _logger.Debug("Entering constructor for BeerWithSoapService.");
+
+            _beerRepository = new BeerRepository();
+        }
 
         public AddBeerResponse AddBeer(AddBeerRequest addBeerRequest)
         {
@@ -23,14 +33,7 @@ namespace BeerWithSoapService
                 return response;
             }
 
-            var beer = new Beer
-            {
-                Id = 011,
-                Name = addBeerRequest.Beer.Name,
-                Style = addBeerRequest.Beer.Style,
-                Abv = addBeerRequest.Beer.Abv,
-                Brewery = addBeerRequest.Beer.Brewery
-            };
+            var beer = _beerRepository.AddBeer(addBeerRequest.Beer);
 
             response.Beer = beer;
             return response;
@@ -44,6 +47,10 @@ namespace BeerWithSoapService
             };
 
             response.BaseResponse = VerifyBaseRequest(deleteBeerRequest.BaseRequest, response.BaseResponse);
+
+            if (response.BaseResponse.ResponseStatus != ResponseStatus.Success) return response;
+            var beerDeleted = _beerRepository.DeleteBeer(deleteBeerRequest.Id);
+            response.BaseResponse.ResponseStatus = beerDeleted ? ResponseStatus.Success : ResponseStatus.Failure;
 
             return response;
         }
@@ -67,10 +74,10 @@ namespace BeerWithSoapService
                 return response;
             }
 
-            var beer = new Beer();
-            var beers = beer.GetAllBeers();
+            var beers = _beerRepository.GetAllBeers();
 
             response.Beers = beers;
+
             return response;
         }
 
@@ -89,14 +96,9 @@ namespace BeerWithSoapService
                 return response;
             }
 
-            var beer = new Beer();
-            var beers =  beer.GetAllBeers();
+            var beer = _beerRepository.GetBeer(getBeerRequest.Id);
 
-            foreach (var b in beers)
-            {
-                if (b.Id == getBeerRequest.Id)
-                    response.Beer = b;
-            }
+            response.Beer = beer;
 
             return response;
         }
@@ -116,21 +118,9 @@ namespace BeerWithSoapService
                 return response;
             }
 
-            var beer = new Beer();
-            var beers = beer.GetAllBeers();
+            var beer = _beerRepository.UpdateBeer(updateBeerRequest.Beer);
 
-            foreach (var b in beers)
-            {
-                if (b.Id == updateBeerRequest.Beer.Id)
-                {
-                    beer.Name = updateBeerRequest.Beer.Name;
-                    beer.Style = updateBeerRequest.Beer.Style;
-                    beer.Abv = updateBeerRequest.Beer.Abv;
-                    beer.Brewery = updateBeerRequest.Beer.Brewery;
-                }
-
-                response.Beer = beer;
-            }
+            response.Beer = beer;
 
             return response;
         }
