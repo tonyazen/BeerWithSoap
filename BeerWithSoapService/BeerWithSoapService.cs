@@ -1,11 +1,12 @@
 ﻿using System;
+using BeerWithSoapService.ServiceModels;
 using log4net;
 
 namespace BeerWithSoapService
 {
     public class BeerWithSoapService : IBeerWithSoapService
     {
-        private static readonly ILog _logger = LogManager.GetLogger(typeof(BeerWithSoapService));
+        private readonly ILog _logger = LogManager.GetLogger(typeof(BeerWithSoapService));
 
         public AddBeerResponse AddBeer(AddBeerRequest addBeerRequest)
         {
@@ -126,7 +127,7 @@ namespace BeerWithSoapService
                     beer.Style = updateBeerRequest.Beer.Style;
                     beer.Abv = updateBeerRequest.Beer.Abv;
                     beer.Brewery = updateBeerRequest.Beer.Brewery;
-                };
+                }
 
                 response.Beer = beer;
             }

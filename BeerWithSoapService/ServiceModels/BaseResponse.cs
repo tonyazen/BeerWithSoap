@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BeerWithSoapService
+namespace BeerWithSoapService.ServiceModels
 {
     public class BaseResponse
     {

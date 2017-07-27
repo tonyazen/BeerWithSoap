@@ -44,22 +44,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddBeerRequest.cs" />
-    <Compile Include="AddBeerResponse.cs" />
-    <Compile Include="BaseRequest.cs" />
-    <Compile Include="BaseResponse.cs" />
-    <Compile Include="Beer.cs" />
+    <Compile Include="ServiceModels\AddBeerRequest.cs" />
+    <Compile Include="ServiceModels\AddBeerResponse.cs" />
+    <Compile Include="ServiceModels\BaseRequest.cs" />
+    <Compile Include="ServiceModels\BaseResponse.cs" />
+    <Compile Include="Models\Beer.cs" />
     <Compile Include="BeerWithSoapService.cs" />
-    <Compile Include="DeleteBeerRequest.cs" />
-    <Compile Include="DeleteBeerResponse.cs" />
-    <Compile Include="GetAllBeersRequest.cs" />
-    <Compile Include="GetAllBeersResponse.cs" />
-    <Compile Include="GetBeerRequest.cs" />
-    <Compile Include="GetBeerResponse.cs" />
+    <Compile Include="ServiceModels\DeleteBeerRequest.cs" />
+    <Compile Include="ServiceModels\DeleteBeerResponse.cs" />
+    <Compile Include="ServiceModels\GetAllBeersRequest.cs" />
+    <Compile Include="ServiceModels\GetAllBeersResponse.cs" />
+    <Compile Include="ServiceModels\GetBeerRequest.cs" />
+    <Compile Include="ServiceModels\GetBeerResponse.cs" />
     <Compile Include="IBeerWithSoapService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UpdateBeerRequest.cs" />
-    <Compile Include="UpdateBeerResponse.cs" />
+    <Compile Include="ServiceModels\UpdateBeerRequest.cs" />
+    <Compile Include="ServiceModels\UpdateBeerResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

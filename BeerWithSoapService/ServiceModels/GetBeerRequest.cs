@@ -1,5 +1,5 @@
 ﻿
-namespace BeerWithSoapService
+namespace BeerWithSoapService.ServiceModels
 {
     public class GetBeerRequest
     {
