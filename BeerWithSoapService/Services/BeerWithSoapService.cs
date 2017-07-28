@@ -1,9 +1,8 @@
 ﻿using System;
-using BeerWithSoapService.Services;
 using BeerWithSoapService.Services.ServiceModels;
 using log4net;
 
-namespace BeerWithSoapService
+namespace BeerWithSoapService.Services
 {
     public class BeerWithSoapService : IBeerWithSoapService
     {

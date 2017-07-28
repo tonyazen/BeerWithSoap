@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using log4net;
 
 namespace BeerWithSoapService.Services
@@ -9,7 +8,7 @@ namespace BeerWithSoapService.Services
     class BeerRepository
     {
         private static readonly ILog _logger = LogManager.GetLogger(typeof(BeerRepository));
-        private List<Beer> _beerStore = new List<Beer>();
+        private static List<Beer> _beerStore { get; set; }
 
         public BeerRepository()
         {
@@ -104,7 +103,9 @@ namespace BeerWithSoapService.Services
         public List<Beer> GetAllBeers()
         {
             if (_beerStore != null)
+            {
                 return _beerStore;
+            }
 
             return new List<Beer>
             {
@@ -125,9 +126,9 @@ namespace BeerWithSoapService.Services
             {
                 try
                 {
-                    return _beerStore.FirstOrDefault(beer => beer.Id == id);
+                    return _beerStore.FirstOrDefault(b => b.Id == id);
                 }
-                catch (Exception ex)
+                catch(Exception ex)
                 {
                     _logger.Error($"GetBeer Exception. Id: {id}. Exception: {ex}");
                     return null;
@@ -155,11 +156,12 @@ namespace BeerWithSoapService.Services
 
                     _beerStore.Add(newBeer);
 
-                    return null;
+                    return newBeer;
                 }
                 catch (Exception ex)
                 {
-                    _logger.Error($"AddBeer Exception. Beer: {beer.Name}, {beer.Style}, {beer.Abv}, {beer.Brewery}. Exception: {ex}");
+                    _logger.Error(
+                        $"AddBeer Exception. Beer: {beer.Name}, {beer.Style}, {beer.Abv}, {beer.Brewery}. Exception: {ex}");
                     return null;
                 }
             }
@@ -169,9 +171,7 @@ namespace BeerWithSoapService.Services
 
         public Beer UpdateBeer(Beer updateBeer)
         {
-            var ctx = HttpContext.Current;
-
-            if (ctx != null)
+            if (_beerStore != null)
             {
                 try
                 {
@@ -180,10 +180,13 @@ namespace BeerWithSoapService.Services
                         if (beer.Id == updateBeer.Id)
                         {
                             beer.Name = updateBeer.Name;
+                            beer.Abv = updateBeer.Abv;
+                            beer.Style = updateBeer.Style;
+                            beer.Brewery = updateBeer.Brewery;
                         }
                     }
 
-                    return _beerStore.FirstOrDefault(beer => beer.Id == updateBeer.Id);
+                    return updateBeer;
                 }
                 catch (Exception ex)
                 {
@@ -197,9 +200,8 @@ namespace BeerWithSoapService.Services
 
         public bool DeleteBeer(int id)
         {
-            var ctx = HttpContext.Current;
 
-            if (ctx != null)
+            if (_beerStore != null)
             {
                 try
                 {
