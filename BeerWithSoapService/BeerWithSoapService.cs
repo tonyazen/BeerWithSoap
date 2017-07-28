@@ -1,9 +1,11 @@
 ﻿using System;
-using BeerWithSoapService.Services.ServiceModels;
+using System.ServiceModel;
+using BeerWithSoapService.Models.ServiceModels;
 using log4net;
 
-namespace BeerWithSoapService.Services
+namespace BeerWithSoapService
 {
+    [ServiceBehavior(IncludeExceptionDetailInFaults = true)]
     public class BeerWithSoapService : IBeerWithSoapService
     {
         private static readonly ILog _logger = LogManager.GetLogger(typeof(BeerWithSoapService));

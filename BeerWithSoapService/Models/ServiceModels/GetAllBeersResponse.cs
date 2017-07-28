@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BeerWithSoapService.Services.ServiceModels
+namespace BeerWithSoapService.Models.ServiceModels
 {
     public class GetAllBeersResponse
     {

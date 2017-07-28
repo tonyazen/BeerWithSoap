@@ -1,6 +1,4 @@
 ﻿
-using System;
-
 namespace BeerWithSoapService
 {
     public class Beer

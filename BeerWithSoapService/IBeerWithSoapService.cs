@@ -1,7 +1,7 @@
 ﻿using System.ServiceModel;
-using BeerWithSoapService.Services.ServiceModels;
+using BeerWithSoapService.Models.ServiceModels;
 
-namespace BeerWithSoapService.Services
+namespace BeerWithSoapService
 {
     [ServiceContract]
     public interface IBeerWithSoapService

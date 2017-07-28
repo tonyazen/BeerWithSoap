@@ -45,23 +45,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Services\BeerRepository.cs" />
-    <Compile Include="Services\ServiceModels\AddBeerRequest.cs" />
-    <Compile Include="Services\ServiceModels\AddBeerResponse.cs" />
-    <Compile Include="Services\ServiceModels\BaseRequest.cs" />
-    <Compile Include="Services\ServiceModels\BaseResponse.cs" />
+    <Compile Include="BeerRepository.cs" />
+    <Compile Include="Models\ServiceModels\AddBeerRequest.cs" />
+    <Compile Include="Models\ServiceModels\AddBeerResponse.cs" />
+    <Compile Include="Models\ServiceModels\BaseRequest.cs" />
+    <Compile Include="Models\ServiceModels\BaseResponse.cs" />
     <Compile Include="Models\Beer.cs" />
     <Compile Include="BeerWithSoapService.cs" />
-    <Compile Include="Services\ServiceModels\DeleteBeerRequest.cs" />
-    <Compile Include="Services\ServiceModels\DeleteBeerResponse.cs" />
-    <Compile Include="Services\ServiceModels\GetAllBeersRequest.cs" />
-    <Compile Include="Services\ServiceModels\GetAllBeersResponse.cs" />
-    <Compile Include="Services\ServiceModels\GetBeerRequest.cs" />
-    <Compile Include="Services\ServiceModels\GetBeerResponse.cs" />
+    <Compile Include="Models\ServiceModels\DeleteBeerRequest.cs" />
+    <Compile Include="Models\ServiceModels\DeleteBeerResponse.cs" />
+    <Compile Include="Models\ServiceModels\GetAllBeersRequest.cs" />
+    <Compile Include="Models\ServiceModels\GetAllBeersResponse.cs" />
+    <Compile Include="Models\ServiceModels\GetBeerRequest.cs" />
+    <Compile Include="Models\ServiceModels\GetBeerResponse.cs" />
     <Compile Include="IBeerWithSoapService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\ServiceModels\UpdateBeerRequest.cs" />
-    <Compile Include="Services\ServiceModels\UpdateBeerResponse.cs" />
+    <Compile Include="Models\ServiceModels\UpdateBeerRequest.cs" />
+    <Compile Include="Models\ServiceModels\UpdateBeerResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
