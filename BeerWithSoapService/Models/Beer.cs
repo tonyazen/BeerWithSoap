@@ -42,6 +42,7 @@ namespace BeerWithSoapService
         Gose,
         AmericanPaleAle,
         ScotchAle,
+		Rye,
         Other
     }
 }

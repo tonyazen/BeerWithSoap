@@ -17,84 +17,43 @@ namespace BeerWithSoapService
                 new Beer
                 {
                     Id = 001,
-                    Name = "Red's Rye",
-                    Style = Style.IPA,
-                    Abv = "6.6%",
-                    Brewery = "Founder's Brewing Co."
-                },
+	                Name = "Red Eye Rye",
+                    Style = Style.Rye,
+	                Abv = "6.7%",
+                    Brewery = "Detroit Beer Co."
+				},
                 new Beer
                 {
                     Id = 002,
-                    Name = "Fresh Squeezed",
+	                Name = "Poetic Pestilence",
                     Style = Style.IPA,
-                    Abv = "6.4%",
-                    Brewery = "Deschutes Brewery"
-                },
+	                Abv = "11%",
+                    Brewery = "Jolly Pumpkin Brewery"
+				},
                 new Beer
                 {
                     Id = 003,
-                    Name = "Dragon's Milk",
-                    Style = Style.Stout,
-                    Abv = "11%",
-                    Brewery = "New Holland Brewing Co."
-                },
+	                Name = "Vanilla Java Porter",
+                    Style = Style.Porter,
+	                Abv = "5%",
+                    Brewery = "Atwater Brewery & Tap House"
+				},
                 new Beer
                 {
                     Id = 004,
-                    Name = "Two Hearted Ale",
-                    Style = Style.IPA,
-                    Abv = "7%",
-                    Brewery = "Bell's Brewery"
-                },
+	                Name = "Breakfast Stout",
+                    Style = Style.Stout,
+	                Abv = "8.3%",
+                    Brewery = "Founders Brewing Co."
+				},
                 new Beer
                 {
                     Id = 005,
-                    Name = "Grapefruit IPA",
-                    Style = Style.IPA,
-                    Abv = "5%",
-                    Brewery = "Perrin Brewing Co."
-
-                },
-                new Beer
-                {
-                    Id = 006,
-                    Name = "Kentucky Breakfast Stout",
-                    Style = Style.Stout,
-                    Abv = "12.4%",
-                    Brewery = "Founder's Brewing Co."
-                },
-                new Beer
-                {
-                    Id = 007,
-                    Name = "Victory at Sea",
-                    Style = Style.Porter,
-                    Abv = "10%",
-                    Brewery = "Ballast Point Brewing Company"
-                },
-                new Beer
-                {
-                    Id = 008,
-                    Name = "Vanilla Porter",
-                    Style = Style.Porter,
-                    Abv = "5.4%",
-                    Brewery = "Breckenridge Brewery"
-                },
-                new Beer
-                {
-                    Id = 009,
-                    Name = "DryPA",
+	                Name = "The Duke",
                     Style = Style.PaleAle,
-                    Abv = "6.2%",
-                    Brewery = "Greyline Brewing Co."
-                },
-                new Beer
-                {
-                    Id = 010,
-                    Name = "Chaga Khan",
-                    Style = Style.Stout,
-                    Abv = "10.4",
-                    Brewery = "City Built Brewing"
-                }
+	                Abv = "5.4%",
+                    Brewery = "Granite City Brewery"
+				}
             };
 
             _beerStore = beers;
